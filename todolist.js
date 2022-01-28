@@ -1,9 +1,9 @@
 const list = {
  "create a new practice task": "In Progress",
- "practice": "In Progress",
  "make a bed": "Done",
  "write a post": "To Do",
 }
+
 function changeStatus(tasks, progress) {
    for(let key in list) {
       if(tasks == key) {
@@ -14,14 +14,16 @@ function changeStatus(tasks, progress) {
 changeStatus("create a new practice task", "To Do");
 changeStatus("make a bed", "To Do");
 changeStatus("write a post", "In Progress");
-changeStatus("practice", "In Progress");
 
 function addTask() {
-   list['have a walk'] = undefined;
+   list['practice'] = "In Progress";
+   list['workout'] = "Done";
 }
+
 function deleteTask() {
-   delete list['have a walk'];
+   delete list['workout'];
 }
+
 function showList() {
    console.log('Todo:')
    for(let key in list) {
@@ -42,5 +44,6 @@ function showList() {
       }
    }
 }
+
+Object.assign(list, addTask(), deleteTask());
 showList();
-//
