@@ -5,10 +5,8 @@ const list = {
 }
 
 function changeStatus(tasks, progress) {
-   for(let key in list) {
-      if(tasks == key) {
-         list[key] = progress;
-      }
+   if(tasks in list) {
+      list[tasks] = progress;
    }
 }
 changeStatus("create a new practice task", "To Do");
@@ -24,26 +22,14 @@ function deleteTask() {
    delete list['workout'];
 }
 
-function showList() {
-   console.log('Todo:')
-   for(let key in list) {
-      if(list[key] === "To Do") {
-         console.log(`  "${key}"`);
-      }
-   }
-   console.log('In Progress:')
-   for(let key in list) {
-      if(list[key] === "In Progress") {
-         console.log(`  "${key}"`);
-      }
-   }
-   console.log('Done:')
-   for(let key in list) {
-      if(list[key] === "Done") {
-         console.log(`  "${key}"`);
+function showList(tasks) {
+   for(tasks in list) {
+      if(tasks === "To Do") {
+         console.log('create a new practice task');
+      } else if(tasks === "In Progress") {
+      } else if(tasks === "Done") {
       } else {return console.log('-')};
    }
 }
-
-Object.assign(list, addTask(), deleteTask());
 showList();
+Object.assign(list, addTask(), deleteTask());
