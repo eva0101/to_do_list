@@ -38,6 +38,8 @@ function showList() {
    for(let key in list) {
       if(list[key] === "Done") {
          console.log(`  "${key}"`);
+      } else {
+         return console.log('-');
       }
    }
 }
